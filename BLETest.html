@@ -1,0 +1,180 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>地库导航</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="Ble.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/weui/1.1.1/style/weui.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/jquery-weui/1.0.1/css/jquery-weui.min.css">
+    <script type="text/javascript" src="http://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <link href="css/search.css" rel="stylesheet">
+    <link href="css/Font-Awesome-3.2.1/css/font-awesome.min.css" rel="stylesheet">
+    <script src="hashes.js" type="text/javascript"></script>
+    <script type="text/javascript" src="js/snap.svg-min.js"></script>
+    <script type="text/javascript" src="js/hammer.min.js"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js" type="text/javascript"></script>
+    <script type="text/javascript" src="js/map.js"></script>
+    <script src="js/BLE.js?v20170707" type="text/javascript"></script>
+    <script type="text/javascript" src="js/navigation_core.js"></script>
+    <!--<script type="text/javascript" src="js/vConsole-2.5.1/dist/vconsole.min.js"></script>-->
+    <script type="text/javascript" src="js/svgConfig.js"></script>
+    <script type="text/javascript" src="js/svgShow.js?v20170707"></script>
+    <script src="js/search.js?v20170707"></script>
+    <script src="js/navigation.js?v20170707"></script>
+    <script src="js/findCar.js"></script>
+    <script type="text/javascript" src="js/nav_ui.js?v20170707"></script>
+    <link rel="stylesheet" href="css/svgStyle.css">
+</head>
+
+<body>
+    <!--地图展示板-->
+    <div class="view-1">
+        <div class="container">
+            <div class="map" id="svg1">
+                <!--<img class="img-start" src="images/start.png" data-x="" data-y="">-->
+                <!--<img class="img-end" src="images/end.png" data-x="" data-y="">-->
+            </div>
+            <div class="foot">
+                <div class="layer1">
+                    <div style="position: absolute;width: 33%;float: left;bottom: 10px">
+                        <div class="floorlist-btn line-dis">楼层
+                            <div class="floor-list">
+                                <ul class="list-bar">
+                                    <li>01</li>
+                                    <hr/>
+                                    <li>02</li>
+                                    <hr/>
+                                    <li>03</li>
+                                    <hr/>
+                                    <li>04</li>
+                                    <hr/>
+                                    <li>05</li>
+                                    <hr/>
+                                    <li>06</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="position: absolute;width: 33%;float: left;left: 33%;;bottom: 10px;">
+                        <a href="javascript:;" class="open-popup" data-target="#half">
+                            <div class="car-search line-dis">寻车</div>
+                        </a>
+                    </div>
+                    <div style="position: absolute;width: 33%;float: left;left: 66%;bottom: 10px">
+                        <div class="pos-btn line-dis" id="get-pos"></div>
+                    </div>
+                </div>
+                <div class="layer2">
+                    <div class="res-panel"></div>
+                </div>
+                <div class="layer3">
+                    <div class="tip-box">
+                        <div class="line-1">
+                            <div class="attribute line-dis"></div>
+                            <i class="close-btn line-dis"></i>
+                        </div>
+                        <div class="line-2">
+                            <div class="to-here">去这里</div>
+                            <div class="from-here">从这里出发</div>
+                        </div>
+                        <div class="line-3">
+                            <div class="confirm">确定</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="layer-realtime">
+                    <!--<div class="realtime-btn"></div>-->
+                    <i class="realtime-icon line-dis"></i>
+                </div>
+                <div class="weui-footer weui-footer_fixed-bottom">
+                    <p class="weui-footer__text">Copyright © 2017 mcilab</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--搜索板开始-->
+    <div class="view-2">
+        <div class="content" style="display:block">
+            <!--header-->
+            <div class="header">
+                <div id="nav_back" style="width: 40px; font-size: 30px;">
+                    <i class="fa fa-angle-left closeBtn"></i>
+                </div>
+                <div style="flex:1">
+                    路线规划
+                </div>
+                <div>
+                    <button id="btn_search" class="btn btn-blue">搜索</button>
+                </div>
+            </div>
+
+            <!--form-->
+            <div class="form">
+                <div style="width: 40px;" id="btn_swap">
+                    <img src="img/swap.png" width="20px" height="64px">
+                </div>
+                <div style="flex:1; display: flex; flex-direction: column;">
+                    <input id="start_input" type="text" data-type="start" data-x="" data-y="" placeholder="起点">
+                    <input id="end_input" type="text" data-type="end" data-x="" data-y="" placeholder="终点">
+                </div>
+                <div style="display: flex; flex-direction: column; width: 160px;">
+                    <a class="btn_pickup" data-type="start">地图选点</a>
+                    <a class="btn_pickup" data-type="end">地图选点</a>
+                </div>
+            </div>
+
+            <!--errInfo 错误信息提示-->
+            <div id="errInfo" style="display:none"></div>
+        </div>
+    </div>
+
+    <!--反向寻车操作栏-->
+    <div id="half" class='weui-popup__container popup-bottom'>
+        <div class="weui-popup__overlay"></div>
+        <div class="weui-popup__modal">
+            <div class="toolbar">
+                <div class="toolbar-inner">
+                    <a href="javascript:;" class="picker-button close-popup">关闭</a>
+                    <h1 class="title">导 航</h1>
+                </div>
+            </div>
+            <div class="modal-content">
+                <div class="weui-grids">
+                    <a href="javascript:;" class="weui-grid js_grid" data-id="progress" onclick="locatedPosition()">
+                        <div class="weui-grid__icon">
+                            <img src="images/icon_nav_city.png" alt="">
+                        </div>
+                        <p class="weui-grid__label">
+                            定位
+                        </p>
+                    </a>
+                    <a href="javascript:;" class="weui-grid js_grid" data-id="msg" onclick="findCar()">
+                        <div class="weui-grid__icon">
+                            <img src="images/icon_nav_up.png" alt="">
+                        </div>
+                        <p class="weui-grid__label">
+                            导航
+                        </p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="//cdn.bootcss.com/jquery-weui/1.0.1/js/jquery-weui.min.js"></script>
+
+    <script>
+        $(document).on("open", ".weui-popup-modal", function() {
+            console.log("open popup");
+        }).on("close", ".weui-popup-modal", function() {
+            console.log("close popup");
+        });
+    </script>
+
+</body>
+
+</html>

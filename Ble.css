@@ -1,0 +1,338 @@
+.container {
+    height: 100%;
+    width: 100%;
+}
+
+.view-1 {
+    display: block;
+}
+
+.view-2 {
+    display: none;
+}
+
+.mid {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+.third-line {
+    width: 33%;
+}
+
+.map {
+    position: relative;
+    height: 70%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.foot {
+    position: fixed;
+    height: 20%;
+    width: 100%;
+    bottom: 0;
+    z-index: 100;
+    border-top: 1px solid #fc8160;
+}
+
+.layer1 {
+    position: relative;
+    height: 70%;
+    width:100%;
+    text-align: center;
+}
+
+.layer2 {
+    position: relative;
+    height: 30%;
+    width:100%;
+    display: none;
+    text-align: center;
+    z-index:101;
+}
+
+.copyright{
+    position: fixed;
+    width: 100%;
+    height:5%;
+    bottom: 5px;
+    z-index: 100;
+    text-align:center;
+}
+
+.copyright p {
+    color:#FF4101;
+}
+
+.container .header{
+    position:relative;
+    width:100%;
+    height:7%;
+    border:none;
+    background-color:#FF4101;
+}
+
+.img-start {
+    display: none;
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    -ms-transform: translate3d(0, 0, 0);
+    -o-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+}
+
+.img-end {
+    display: block;
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    -ms-transform: translate3d(0, 0, 0);
+    -o-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+}
+
+.floorlist-btn-hover {
+    border: 5px solid #ff784f !important;
+    transition: border 0.1s;
+    -moz-transition: border 0.1s;
+    /* Firefox 4 */
+    -webkit-transition: border 0.1s;
+    /* Safari 和 Chrome */
+    -o-transition: border 0.1s;
+    /* Opera */
+}
+
+.car-search,
+.floorlist-btn {
+    color: #fff;
+    text-align: center;
+    line-height: 50px;
+}
+
+.z-bottom {
+    z-index: 10;
+}
+
+.z-middle {
+    z-index: 15;
+}
+
+.z-top {
+    z-index: auto;
+}
+
+.car-search:active {
+    border: 5px solid #ff784f !important;
+    transition: border 0.1s;
+    -moz-transition: border 0.1s;
+    /* Firefox 4 */
+    -webkit-transition: border 0.1s;
+    /* Safari 和 Chrome */
+    -o-transition: border 0.1s;
+    /* Opera */
+}
+
+.floorlist-btn {
+    position: relative;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    background: #ff4101;
+    border: 3px solid #ff784f;
+}
+
+.car-search {
+    clear: both;
+    /*position: absolute;*/
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    background: #ff4101;
+    border: 3px solid #ff784f;
+}
+
+.pos-btn {
+    clear: both;
+    height: 50px;
+    width: 50px;
+    background: url("images/position.png") center no-repeat;
+}
+.test-btn{
+    clear: both;
+    /*position: absolute;*/
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    background: #ff4101;
+    border: 3px solid #ff784f;
+}
+.pos-btn:active {
+    background-size: 52px;
+    transition: border 0.1s;
+    -moz-transition: border 0.1s;
+    /* Firefox 4 */
+    -webkit-transition: border 0.1s;
+    /* Safari 和 Chrome */
+    -o-transition: border 0.1s;
+    /* Opera */
+}
+
+.list-bar {
+    height: 100px;
+    width: 35px;
+    color: #fff;
+    list-style: none;
+    overflow-x: scroll;
+}
+
+.list-bar hr {
+    width: 80%;
+    color: #fff;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.line-dis {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.floor-list {
+    display: none;
+    position: absolute;
+    bottom: 47px;
+    background: #5d5c5c;
+    border-radius: 3px;
+    z-index:200;
+}
+
+.res-panel {
+    z-index: 150;
+    background: #BBBBBB;
+    font-weight: 500;
+    /* border: 1px solid #000; */
+}
+
+.layer3 {
+    display: none;
+    width: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    position: absolute;
+    top: 0;
+}
+
+.tip-box {
+    width: 100%;
+    height: 75px;
+    background: #fff;
+    color: #333;
+    font-weight: 600;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 5px #666;
+}
+
+.line-1 {
+    height: 40px;
+    width: 100%;
+    border-bottom: 1px solid #ccc;
+}
+
+.line-2,
+.line-3 {
+    height: 35px;
+    width: 100%;
+    display: flex;
+    display: -webkit-flex;
+    justify-content: center;
+}
+
+.attribute {
+    /*display:none;*/
+    width: 50%;
+    padding-left: 20px;
+}
+
+.close-btn {
+    height: 45px;
+    width: 45px;
+    float: right;
+}
+
+.to-here,
+.from-here,
+.confirm {
+    width: 50%;
+    text-align: center;
+    line-height: 30px;
+}
+
+.line-3 {
+    display: none;
+}
+
+.from-here {
+    border-left: 1px solid #CCCCCC;
+}
+
+.close-btn:before {
+    content: url("images/close.svg");
+}
+.layer-realtime{
+    display: none;
+    height:50px;
+    width:100%;
+    text-align: center;
+    margin-bottom: 10px;
+}
+.realtime-btn{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    background: #ff4101;
+    border: 3px solid #ff784f;
+}
+.realtime-icon {
+    height: 55px;
+    width: 55px;
+    border-radius: 50%;
+    background: #ff4101;
+    border: 3px solid #ff784f;
+    /*float: right;*/
+}
+.realtime-icon:active{
+    border: 5px solid #ff784f !important;
+    transition: border 0.1s;
+    -moz-transition: border 0.1s;
+    /* Firefox 4 */
+    -webkit-transition: border 0.1s;
+    /* Safari 和 Chrome */
+    -o-transition: border 0.1s;
+    /* Opera */
+}
+.realtime-icon:before{
+    content: url("images/walkman.svg");
+}
+/*寻车部分css需要的属性*/
+
+.weui-grid {
+    width: 50% !important;
+}
+
+#half {
+    z-index: 100;
+}
+
+
+/*寻车部分css需要的属性*/
