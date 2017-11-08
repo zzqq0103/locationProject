@@ -12,20 +12,24 @@
     <link rel="stylesheet" href="css/svgStyle.css">
     <link rel="stylesheet" href="http://cdn.bootcss.com/weui/1.1.1/style/weui.min.css">
     <link rel="stylesheet" href="http://cdn.bootcss.com/jquery-weui/1.0.1/css/jquery-weui.min.css">
-    <link rel="stylesheet" href="css/Font-Awesome-3.2.1/css/font-awesome.min.css">
+    <!-- <link rel="stylesheet" href="css/font-awesome.min.css"> -->
 </head>
 
 <body>
     <!-- 室内导航（选点）部分开始 -->
     <div class="view-navigation">
         <div class="top">
-            <div id="walker">
-                <img src="images/walker.svg"></img>
+            <div class="walker">
+                <img class="backArrow" src="images/backArrow.svg" />
+                <!-- <img src="images/walker.svg" /> -->
             </div>
             <p>室 内 导 航</p>
-            <span class="roadPlan">
+            <div class="roadPlan walker">
+                <img src="images/walker.svg" />
+            </div>
+            <!-- <span class="roadPlan">
                 <a id="roadLink">路 线</a>
-            </span>
+            </span> -->
         </div>
         <div id="content">
             <div id="left">
