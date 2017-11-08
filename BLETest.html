@@ -66,7 +66,7 @@
         <div class="container">
             <div class="map" id="svg1">
             </div>
-            <div class="foot">
+            <div class="foot" style="display: none;">
                 <div class="layer1">
                     <div style="position: absolute;width: 33%;float: left;bottom: 10px">
                         <div class="floorlist-btn line-dis">楼层
@@ -99,7 +99,7 @@
                 <div class="layer2">
                     <div class="res-panel"></div>
                 </div>
-                <div class="layer3">
+                <!-- <div class="layer3">
                     <div class="tip-box">
                         <div class="line-1">
                             <div class="attribute line-dis"></div>
@@ -113,13 +113,31 @@
                             <div class="confirm">确定</div>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <div class="layer-realtime">
-                    <!--<div class="realtime-btn"></div>-->
                     <i class="realtime-icon line-dis"></i>
                 </div>
                 <div class="weui-footer weui-footer_fixed-bottom">
                     <p class="weui-footer__text">Copyright © 2017 mcilab</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 选择起点、终点的面板 -->
+    <div class="selectDotPanel">
+        <div class="layer3">
+            <div class="tip-box">
+                <div class="line-1">
+                    <div class="attribute line-dis"></div>
+                    <i class="close-btn line-dis"></i>
+                </div>
+                <div class="line-2">
+                    <div class="to-here">点击设定起点</div>
+                    <div class="from-here">点击设定终点</div>
+                </div>
+                <div class="line-3">
+                    <div class="confirm" style="color:red;">规 划 导 航</div>
                 </div>
             </div>
         </div>
@@ -162,7 +180,7 @@
     </div>
 
     <!--反向寻车操作栏-->
-    <div id="half" class='weui-popup__container popup-bottom'>
+    <!-- <div id="half" class='weui-popup__container popup-bottom'>
         <div class="weui-popup__overlay"></div>
         <div class="weui-popup__modal">
             <div class="toolbar">
@@ -192,12 +210,12 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
     <!-- <script type="text/javascript" src="http://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script> -->
     <script type="text/javascript" src="https://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
-    <script type="text/javascript" src="http://cdn.bootcss.com/jquery-weui/1.0.1/js/jquery-weui.min.js"></script>
     <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+    <script type="text/javascript" src="http://cdn.bootcss.com/jquery-weui/1.0.1/js/jquery-weui.min.js"></script>
     <!-- <script type="text/javascript" src="js/BLE.js?v20170707"></script> -->
     <script type="text/javascript" src="js/snap.svg-min.js"></script>
     <script type="text/javascript" src="js/search.js"></script>
@@ -212,13 +230,6 @@
     <script type="text/javascript" src="js/findCar.js"></script>
     <!-- <script type="text/javascript" src="js/search.js?v20170707"></script> -->
     <!--<script type="text/javascript" src="js/vConsole-2.5.1/dist/vconsole.min.js"></script>-->
-    <!-- <script>
-        $(document).on("open", ".weui-popup-modal", function () {
-            console.log("open popup");
-        }).on("close", ".weui-popup-modal", function () {
-            console.log("close popup");
-        });
-    </script> -->
 </body>
 
 </html>

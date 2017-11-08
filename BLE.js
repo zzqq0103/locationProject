@@ -48,9 +48,9 @@ $(document).ready(function(){
         // $('.layer2').show();
         getLocation();
     });
-    $('.close-btn').on('click',function (e) {
-        $('.layer3').hide();
-    });
+    // $('.close-btn').on('click',function (e) {
+    //     $('.layer3').hide();
+    // });
     $('.to-here').on('click',function (e) {
         toHere();
     });
@@ -66,10 +66,10 @@ $(document).ready(function(){
         console.log(obj)
         getMapPoint(obj);
     });
-    $('.confirm').on('click',function (e) {
-        $('.view-2').show();
-        $('.view-1').hide();
-    });
+    // $('.confirm').on('click',function (e) {
+    //     $('.view-2').show();
+    //     $('.view-1').hide();
+    // });
     if (!window.DeviceMotionEvent){
         $.alert("此设备不支持重力传感器");
     }
@@ -228,6 +228,6 @@ function sendData(data){
                         $.alert(XMLHttpRequest.status);
                         $.alert(XMLHttpRequest.readyState);
                         $.alert(textStatus);
-                    }
+        }
     })
 }

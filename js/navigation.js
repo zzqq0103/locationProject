@@ -7,18 +7,18 @@ function showOrhide(data,bool,flag) {
     if(bool && flag==1){//普通点击
         console.log("类型1")
         $('.attribute').html(data);
-        $('.layer3').show();
+        $('.selectDotPanel').show();
         $('.line-2').show();
         $('.line-3').hide();
     }else if(bool && flag==2){//地图选点
         console.log("类型2")
-        $('.layer3').show();
+        $('.selectDotPanel').show();
         $('.attribute').html(data);
         $('.line-2').hide();
-        $('.line-3').show();
+        $('.line-3').hide();
     }else{
         $('.attribute').html('');
-        $('.line-3').hide();
+        $('.line-3').show();
         $('line-2').show();
         $('.layer3').hide();
     }
@@ -167,54 +167,60 @@ function getPositionFlag2(str,type) {
     // setTranslated3d(offx,offy,'','');
 }
 //功能--点击获取起始点
+
+
 //功能--去这里
-function toHere() {
-    var here= $('.attribute').html();
-    getPositionFlag2(here,2)
-    $('#end_input').val(here);
-    $('#start_input').val('');
-    $('.view-2').show();
-    $('.view-1').hide();
-}
+// function toHere() {
+//     var here= $('.attribute').html();
+//     getPositionFlag2(here,2)
+//     $('#end_input').val(here);
+//     $('#start_input').val('');
+//     $('.view-2').show();
+//     $('.view-1').hide();
+// }
+
 //功能--从这里出发
-function fromHere(){
-    var here= $('.attribute').html();
-    getPositionFlag2(here,1)
-    $('#end_input').val('');
-    $('#start_input').val(here);
-    $('.view-2').show();
-    $('.view-1').hide();
-}
+// function fromHere(){
+//     var here= $('.attribute').html();
+//     getPositionFlag2(here,1)
+//     $('#end_input').val('');
+//     $('#start_input').val(here);
+//     $('.view-2').show();
+//     $('.view-1').hide();
+// }
+
 //功能--返回
-function goBack(){
-    var svg=Snap("#图层_1");
-    $('polygon').unbind()
-    getNavigation(svg,1);
-    $('.view-2').hide();
-    $('.view-1').show();
-}
+// function goBack(){
+//     var svg=Snap("#图层_1");
+//     $('polygon').unbind()
+//     getNavigation(svg,1);
+//     $('.view-2').hide();
+//     $('.view-1').show();
+// }
+
 //功能--地图选点（点击后回滚函数）
-function selectCallback(type,data) {
-    if(type=='start'){
-        // $('#end_input').val('');
-        $('#start_input').val(data['-displayName']);
-        $('#start_input').data('x',data['-markX']);
-        $('#start_input').data('y',data['-markY']);
-    }else {
-        $('#end_input').val(data['-displayName']);
-        $('#start_input').data('x',data['-markX']);
-        $('#start_input').data('y',data['-markY']);
-    }
-    // $('.view-2').show();
-    // $('.view-1').hide();
-}
+// function selectCallback(type,data) {
+//     if(type=='start'){
+//         // $('#end_input').val('');
+//         $('#start_input').val(data['-displayName']);
+//         $('#start_input').data('x',data['-markX']);
+//         $('#start_input').data('y',data['-markY']);
+//     }else {
+//         $('#end_input').val(data['-displayName']);
+//         $('#start_input').data('x',data['-markX']);
+//         $('#start_input').data('y',data['-markY']);
+//     }
+//     // $('.view-2').show();
+//     // $('.view-1').hide();
+// }
+
 //功能--（接上)点击获取对应位置信息
-function getMapPoint(obj){
-    $('.view-2').hide();
-    $('.view-1').show();
-    type=obj[0].dataset.type;
-    $('.layer3').hide();
-    var svg=Snap("#图层_1");
-    $('polygon').unbind()
-    getNavigation(svg,2);
-}
+// function getMapPoint(obj){
+//     $('.view-2').hide();
+//     $('.view-1').show();
+//     type=obj[0].dataset.type;
+//     $('.layer3').hide();
+//     var svg=Snap("#图层_1");
+//     $('polygon').unbind()
+//     getNavigation(svg,2);
+// }

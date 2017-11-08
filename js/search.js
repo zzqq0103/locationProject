@@ -1,47 +1,12 @@
 $().ready(function() {
+    $.toast.prototype.defaults.duration = 500
+    console.log("diaoyong search.js");
     var screenHeight = $(window).height();
     var screenWidth = $(window).width();
     console.log(screenHeight + "," + screenWidth);
-    $(".container").css("width", screenWidth);
-    $(".container").css("height", screenHeight);
-    // 点击转换 “起点” 与 “终点“ 数据交换
-    $("#btn_swap").on("click", function() {
-        var start_input = $("#start_input").val();
-        var end_input = $("#end_input").val();
-        $("#start_input").val(end_input);
-        $("#end_input").val(start_input);
-    });
-    $("#btn_search").on("click", function() {
-        if (checkInputInfo()) {
-            //进入路线规划展示
-            setRoadMap();
-            ui_realTimeNav();
-            imgStartHide();
-            $('.view-2').hide();
-            $('.view-1').show();
-        }
-    });
+    $("body").css("width", screenWidth);
+    $("body").css("height", screenHeight);
 });
-
-//审核起点与终点的数据的有效性
-function checkInputInfo() {
-    var start_input = $("#start_input").val();
-    var end_input = $("#end_input").val();
-    if (!start_input || !end_input) {
-        if (!start_input && !end_input) {
-            $("#errInfo").show().html("起点和终点不能为空");
-            return false;
-        } else if (!start_input) {
-            $("#errInfo").show().html("起点不能为空");
-            return false;
-        } else if (!end_input) {
-            $("#errInfo").show().html("终点不能为空");
-            return false;
-        }
-    } else {
-        return true;
-    }
-}
 
 //进入对地库图片的展示
 function setRoadMap() {
@@ -124,6 +89,7 @@ function startPath() {
     // }
     setTimeout('startPath()', 1000);
 }
+
 var startflag = 0;
 
 function startPathTest() {
@@ -147,4 +113,89 @@ function startPathTest() {
 $('.car-search').on('click',function () {
     $('.view-navigation').show();
     $('.view-1 .foot').hide();
+    $('.view-1').css({
+        "height":"65%"
+    });
+    $('#图层_1').css({
+        "position":"absolute",
+        "top": 0,
+        "right": 0,
+        "left": 0,
+        "bottom": 0,
+        "margin":'auto'
+    });
+    $('.selectDotPanel').show();
 })
+
+$('.backArrow').on('click',function () {
+    $('.view-navigation').hide();
+    $('.view-1 .foot').show();
+    $('.selectDotPanel').hide();
+    $('.view-1').css({
+        "height":"80%"
+    });
+    $('#图层_1').css({
+        "position":"absolute",
+        "top": 0,
+        "right": 0,
+        "left": 0,
+        "bottom": 0,
+        "margin":'auto'
+    });
+})
+
+$('.close-btn').on('click',function (){
+    console.log('xxx');
+    $('.selectDotPanel').hide();
+})
+
+$('#startIcon,#endIcon').on('click',function () {
+    $('.selectDotPanel').show();
+})
+
+$('.to-here').on('click',function(){
+    $.toast("设置起点成功", "text");
+    var dotValue = $('.attribute').text();
+    console.log(dotValue)
+    if(dotValue){
+        $('#startPosition').val(dotValue);
+    }
+    var startVal = $('#startPosition').val(),
+        endVal = $("#endPosition").val();
+    console.log(startVal+', '+endVal)
+    if(startVal === endVal){
+        $.toast("起点和终点不能相同", "text");
+        return;
+    }
+    if(startVal && endVal){
+        $('.line-3').show();
+    }
+})
+
+$('.from-here').on('click',function(){
+    $.toast("设置终点成功", "text");
+    var dotValue = $('.attribute').text();
+    console.log(dotValue)
+    if(dotValue){
+        $('#endPosition').val(dotValue);
+    }
+    var startVal = $('#startPosition').val(),
+        endVal = $("#endPosition").val();
+    console.log(startVal+', '+endVal)
+    if(startVal === endVal){
+        $.toast("起点和终点不能相同", "text");
+        return;
+    }
+    if(startVal && endVal){
+        $('.line-3').show();
+    }
+})
+
+$('#transfer').on("click",function () {
+    var startPValue = $('#startPosition').val();
+    var endPValue = $("#endPosition").val();
+    $('#startPosition').val(endPValue);
+    $("#endPosition").val(startPValue);
+    $(".attribute").val('');
+})
+
