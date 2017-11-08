@@ -1,3 +1,4 @@
+var status = false;
 $().ready(function() {
     $.toast.prototype.defaults.duration = 500
     console.log("diaoyong search.js");
@@ -111,6 +112,7 @@ function startPathTest() {
 }
 
 $('.car-search').on('click',function () {
+    status = true;
     $('.view-navigation').show();
     $('.view-1 .foot').hide();
     $('.view-1').css({

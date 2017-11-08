@@ -6,8 +6,11 @@ var type;
 function showOrhide(data,bool,flag) {
     if(bool && flag==1){//普通点击
         console.log("类型1")
+        console.log(status)
         $('.attribute').html(data);
-        $('.selectDotPanel').show();
+        if(status === false){
+            $('.selectDotPanel').show();
+        }
         $('.line-2').show();
         $('.line-3').hide();
     }else if(bool && flag==2){//地图选点
@@ -23,6 +26,7 @@ function showOrhide(data,bool,flag) {
         $('.layer3').hide();
     }
 }
+
 //POI 显示板;参数：s--polygon对象；flag--1>普通点击，2>地图选点
 function getNavigation(s,flag) {
     $("polygon").on("click", function (e) {
@@ -73,6 +77,7 @@ function getNavigation(s,flag) {
         }
     });
 }
+
 //功能--（地图选点）添加起始点标识,str--热区名字，type--地点类型，1-起点，2-终点
 function getPositionFlag(str,type) {
     s = Snap("#图层_1");
@@ -92,6 +97,7 @@ function getPositionFlag(str,type) {
     offy = sheight/2 -cy;
     setTranslated3d(offx,offy,'','');
 }
+
 //功能--（地图选点）添加终结点标识,str--热区名字，flag--地点类型，1-起点，2-终点
 function setPositionFlag(str,type){
     s = Snap("#图层_1");
@@ -111,6 +117,7 @@ function setPositionFlag(str,type){
     offy = sheight/2 -cy;
     setTranslated3d(offx,offy,'','');
 }
+
 /**
  * 修改的函数
  * */
@@ -140,6 +147,7 @@ function setPositionFlag2(str,type){
     // offy = sheight/2 -cy;
     // setTranslated3d(offx,offy,'','');
 }
+
 function getPositionFlag2(str,type) {
     s = Snap("#图层_1");
     var map=POS.controler();
