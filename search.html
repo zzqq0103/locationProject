@@ -17,8 +17,11 @@
 <body>
     <div>
         <div class="top">
-            <span>室 内 导 航</span>
-            <img id="walker" src="images/walker.svg"></img>
+            <div id="walker"><img  src="images/walker.svg"></img></div>
+            <p>室 内 导 航</p>
+            <span class="roadPlan">
+                <a id="roadLink">路 线</a>
+            </span>
         </div>
         <div id="content">
             <div id="left">
@@ -26,8 +29,18 @@
                 <span class="top leftspan">到</span>
             </div>
             <div id="middle">
-                <input id="startPosition" />
-                <input id="endPosition" />
+                <div class="line-search-p startPara" style="border-bottom: 1px solid #ccc;">
+                    <div class="route-input-icon route-start">
+                    </div>
+                    <input id="startPosition" placeholder="请从地图中选择起点"/>
+                    <div class="positionIcon"><img id="startIcon" src="images/blue_map.svg"/></div>
+                </div>
+                <div class="line-search-p endPara">
+                    <div class="route-input-icon route-end">
+                    </div>
+                    <input id="endPosition" placeholder="请从地图中选择终点"/>
+                    <div class="positionIcon"><img id="endIcon" src="images/blue_map.svg"/></div>
+                </div>
             </div>
             <div id="right">
                 <img id="transfer" src="images/transfer.svg"></img>

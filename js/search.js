@@ -4,7 +4,6 @@ $().ready(function() {
     console.log(screenHeight + "," + screenWidth);
     $(".container").css("width", screenWidth);
     $(".container").css("height", screenHeight);
-
     // 点击转换 “起点” 与 “终点“ 数据交换
     $("#btn_swap").on("click", function() {
         var start_input = $("#start_input").val();
@@ -12,7 +11,6 @@ $().ready(function() {
         $("#start_input").val(end_input);
         $("#end_input").val(start_input);
     });
-
     $("#btn_search").on("click", function() {
         if (checkInputInfo()) {
             //进入路线规划展示
@@ -23,7 +21,6 @@ $().ready(function() {
             $('.view-1').show();
         }
     });
-
 });
 
 //审核起点与终点的数据的有效性
@@ -101,6 +98,7 @@ function getPath(startX, startY, endX, endY) {
         }
     });
 }
+
 //开始导航,调用前提示（使用当前位置开始导航）
 function startPath() {
     console.log("startPath");
@@ -145,3 +143,8 @@ function startPathTest() {
         t = null;
     }
 }
+
+$('.car-search').on('click',function () {
+    $('.view-navigation').show();
+    $('.view-1 .foot').hide();
+})

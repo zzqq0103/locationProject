@@ -3,7 +3,15 @@
     width: 100%;
 }
 
+.view-navigation{
+    position: relative;
+    display: none;
+    height: 30%;
+    width: 100%;
+}
+
 .view-1 {
+    position: relative;
     display: block;
 }
 
@@ -29,10 +37,11 @@
 }
 
 .map {
-    position: relative;
+    position: absolute;
     height: 70%;
     width: 100%;
     overflow: hidden;
+    top: 7%;
 }
 
 .foot {

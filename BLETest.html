@@ -2,41 +2,65 @@
 <html lang="en">
 
 <head>
-    <title>地库导航</title>
+    <title>室内导航</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <link rel="stylesheet" href="Ble.css">
-    <link rel="stylesheet" href="//cdn.bootcss.com/weui/1.1.1/style/weui.min.css">
-    <link rel="stylesheet" href="//cdn.bootcss.com/jquery-weui/1.0.1/css/jquery-weui.min.css">
-    <script type="text/javascript" src="http://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
-    <link href="css/search.css" rel="stylesheet">
-    <link href="css/Font-Awesome-3.2.1/css/font-awesome.min.css" rel="stylesheet">
-    <script src="hashes.js" type="text/javascript"></script>
-    <script type="text/javascript" src="js/snap.svg-min.js"></script>
-    <script type="text/javascript" src="js/hammer.min.js"></script>
-    <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js" type="text/javascript"></script>
-    <script type="text/javascript" src="js/map.js"></script>
-    <script src="js/BLE.js?v20170707" type="text/javascript"></script>
-    <script type="text/javascript" src="js/navigation_core.js"></script>
-    <!--<script type="text/javascript" src="js/vConsole-2.5.1/dist/vconsole.min.js"></script>-->
-    <script type="text/javascript" src="js/svgConfig.js"></script>
-    <script type="text/javascript" src="js/svgShow.js?v20170707"></script>
-    <script src="js/search.js?v20170707"></script>
-    <script src="js/navigation.js?v20170707"></script>
-    <script src="js/findCar.js"></script>
-    <script type="text/javascript" src="js/nav_ui.js?v20170707"></script>
+    <link rel="stylesheet" href="css/search.css">
     <link rel="stylesheet" href="css/svgStyle.css">
+    <link rel="stylesheet" href="http://cdn.bootcss.com/weui/1.1.1/style/weui.min.css">
+    <link rel="stylesheet" href="http://cdn.bootcss.com/jquery-weui/1.0.1/css/jquery-weui.min.css">
+    <link rel="stylesheet" href="css/Font-Awesome-3.2.1/css/font-awesome.min.css">
 </head>
 
 <body>
+    <!-- 室内导航（选点）部分开始 -->
+    <div class="view-navigation">
+        <div class="top">
+            <div id="walker">
+                <img src="images/walker.svg"></img>
+            </div>
+            <p>室 内 导 航</p>
+            <span class="roadPlan">
+                <a id="roadLink">路 线</a>
+            </span>
+        </div>
+        <div id="content">
+            <div id="left">
+                <span class="top leftspan">从</span>
+                <span class="top leftspan">到</span>
+            </div>
+            <div id="middle">
+                <div class="line-search-p startPara" style="border-bottom: 1px solid #ccc;">
+                    <div class="route-input-icon route-start">
+                    </div>
+                    <input id="startPosition" placeholder="请从地图中选择起点" />
+                    <div class="positionIcon">
+                        <img id="startIcon" src="images/blue_map.svg" />
+                    </div>
+                </div>
+                <div class="line-search-p endPara">
+                    <div class="route-input-icon route-end">
+                    </div>
+                    <input id="endPosition" placeholder="请从地图中选择终点" />
+                    <div class="positionIcon">
+                        <img id="endIcon" src="images/blue_map.svg" />
+                    </div>
+                </div>
+            </div>
+            <div id="right">
+                <img id="transfer" src="images/transfer.svg"></img>
+            </div>
+        </div>
+    </div>
+    <!-- 室内导航（选点）部分结束 -->
+
     <!--地图展示板-->
     <div class="view-1">
         <div class="container">
             <div class="map" id="svg1">
-                <!--<img class="img-start" src="images/start.png" data-x="" data-y="">-->
-                <!--<img class="img-end" src="images/end.png" data-x="" data-y="">-->
             </div>
             <div class="foot">
                 <div class="layer1">
@@ -60,8 +84,8 @@
                         </div>
                     </div>
                     <div style="position: absolute;width: 33%;float: left;left: 33%;;bottom: 10px;">
-                        <a href="javascript:;" class="open-popup" data-target="#half">
-                            <div class="car-search line-dis">寻车</div>
+                        <a href="javascript:;">
+                            <div class="car-search line-dis">导航</div>
                         </a>
                     </div>
                     <div style="position: absolute;width: 33%;float: left;left: 66%;bottom: 10px">
@@ -96,6 +120,7 @@
             </div>
         </div>
     </div>
+
     <!--搜索板开始-->
     <div class="view-2">
         <div class="content" style="display:block">
@@ -165,16 +190,31 @@
         </div>
     </div>
 
-    <script src="//cdn.bootcss.com/jquery-weui/1.0.1/js/jquery-weui.min.js"></script>
-
-    <script>
-        $(document).on("open", ".weui-popup-modal", function() {
+    <!-- <script type="text/javascript" src="http://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script> -->
+    <script type="text/javascript" src="https://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript" src="http://cdn.bootcss.com/jquery-weui/1.0.1/js/jquery-weui.min.js"></script>
+    <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+    <!-- <script type="text/javascript" src="js/BLE.js?v20170707"></script> -->
+    <script type="text/javascript" src="js/snap.svg-min.js"></script>
+    <script type="text/javascript" src="js/search.js"></script>
+    <script type="text/javascript" src="js/map.js"></script>
+    <script type="text/javascript" src="hashes.js"></script>
+    <script type="text/javascript" src="js/hammer.min.js"></script>
+    <script type="text/javascript" src="js/navigation_core.js"></script>
+    <script type="text/javascript" src="js/navigation.js?v20170707"></script>
+    <script type="text/javascript" src="js/nav_ui.js?v20170707"></script>
+    <script type="text/javascript" src="js/svgConfig.js"></script>
+    <script type="text/javascript" src="js/svgShow.js?v20170707"></script>
+    <script type="text/javascript" src="js/findCar.js"></script>
+    <!-- <script type="text/javascript" src="js/search.js?v20170707"></script> -->
+    <!--<script type="text/javascript" src="js/vConsole-2.5.1/dist/vconsole.min.js"></script>-->
+    <!-- <script>
+        $(document).on("open", ".weui-popup-modal", function () {
             console.log("open popup");
-        }).on("close", ".weui-popup-modal", function() {
+        }).on("close", ".weui-popup-modal", function () {
             console.log("close popup");
         });
-    </script>
-
+    </script> -->
 </body>
 
 </html>

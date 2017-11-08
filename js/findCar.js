@@ -129,6 +129,7 @@ function confirmPosition(position, flag) {
     }
 }
 
+
 function loadPath() {
     console.log("loadPath");
     //获取寻车实时位置与停车位置

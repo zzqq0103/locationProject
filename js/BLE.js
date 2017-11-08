@@ -22,6 +22,7 @@ var previousStep,currentStep;
         if (r != null) return unescape(r[2]); return null;
     }
 })(jQuery);
+
 function getAccessToken() {
     var url ='https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=wxff6b7d963bc7dad9&secret=8e89b21130ce986674c4b46c323d09da'
     $.ajax({
@@ -40,6 +41,7 @@ function getAccessToken() {
         }
     });
 }
+
 function getTicket(ticket_access_token) {
     var url='https://api.weixin.qq.com/cgi-bin/ticket/getticket?access_token='+ticket_access_token+'&type=jsapi'
     $.ajax({
@@ -57,6 +59,7 @@ function getTicket(ticket_access_token) {
         }
     });
 }
+
 // function getTicket(access_token) {
 //     var ticket;
 //     console.log(access_token);
@@ -79,6 +82,7 @@ function getTicket(ticket_access_token) {
 //     });
 //     return ticket;
 // }
+
 var isRecu   //是否递归
 $(document).ready(function(){
     $('.floorlist-btn').on('click',function (e) {
@@ -126,7 +130,6 @@ $(document).ready(function(){
         }else{
             getOpenId();
             // getAccessToken();
-
         }
         if (!window.DeviceMotionEvent){
             $.alert("此设备不支持重力传感器");
@@ -138,11 +141,13 @@ $(document).ready(function(){
     startOrientationSensor();//开启指南针
     loadJSAPI();
 });
+
 function _log(){
     $('.res-panel').html("当前步数："+newsum+"指北针："+roDegree)
     $('.layer2').show();
     console.log('指南针测试');
 }
+
 //功能--配置公众号JSapi
 function loadJSAPI() {
     getAccessToken();
@@ -179,7 +184,9 @@ function loadJSAPI() {
     });
 
 }
+
 var resAccObj=[62];//保存重力加速度传感
+
 //功能--定位（获取蓝牙列表、重力加速度传感列表）
 function noNettest() {
      var positionObj={"X":600,"Y":400};
@@ -238,12 +245,12 @@ function getLocation() {
         });
         //setTimeout('getLocation()',1000)
     }
-
-
 }
+
 function getBeacons() {
 
 }
+
 //功能--停止扫描蓝牙+加速度传感
 function stopGetLocation() {
     wx.startSearchBeacons({
@@ -254,6 +261,7 @@ function stopGetLocation() {
     });
     stopSensor();//关闭传感器
 }
+
 //功能--传输后台数据整理
 function setData(ble,acc) {
     var data={};
@@ -263,6 +271,7 @@ function setData(ble,acc) {
     var res=JSON.stringify(data);
     return res;
 }
+
 //功能--发送数据
 function sendData(data){
     $.ajax({
@@ -306,6 +315,7 @@ function getOpencode(){
         +'&state=12345#wechat_redirect';
     window.location.href=url;
 }
+
 function getOpenId() {
     var appId='wxff6b7d963bc7dad9';
     var code=$.getUrlParam('code');

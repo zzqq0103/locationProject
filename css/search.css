@@ -15,47 +15,83 @@ div {
 
 .top{
     position: relative;
-    height:40px;
+    display: flex;
+    display: -webkit-flex;
     width:100%;
+    height:40px;
     font-size: 16px;
     font-family: Arial,sans-serif;
     color:#5f6477;
-    text-align:center;
     vertical-align:middle;
     line-height: 40px;
     border-bottom: 1px solid #cccccc;
 }
 
-#walker{
-    position: absolute;
-    top: 7px;
-    left: 12px;
+.top p{
+    -webkit-flex:6;
+    flex:6;
+    text-align: center;
+    line-height: 40px;
+}
+
+.top span{
+    -webkit-flex:2;
+    flex:2;
     display: block;
-    color: #fff;
-    height: 25px;
-    width: 25px;
-    opacity: .5;
+}
+
+.roadPlan{
+    height:40px;
+}
+
+#roadLink{
+    display: block;
+    border: 1px solid rgb(90, 84, 84);
+    width: 50%;
+    text-align: center;
+    line-height: 26px;
+    height: 26px;
+    margin: 7px auto 7px;
+    border-radius: 8px;
+    font-size: 12px;
+    color: #2c9efe;
+}
+
+#walker{
+    -webkit-flex:1.5;
+    flex:1.5;
+}
+
+#walker img{
+    display: block;
+    margin: 0 auto;
+    margin-top:8px;
+    width: 35%;
+    height:20px;
 }
 
 #content {
     position: relative;
     display: flex;
     display: -webkit-flex;
+
  }
 
 #left{
-    -webkit-flex: 1;
-    flex: 1;
-    height:100px;
+    -webkit-flex: 1.5;
+    flex: 1.5;
+    height:80px;
 }
 
 .leftspan{
     display: block;
     font-size: 13px !important;
     color: #9b9faf !important;
-    height: 50px !important;
+    height: 40px !important;
     border: none !important;
     line-height:50px;
+    padding-top: 4px;
+    text-align:center;
 }
 
 #middle{
@@ -63,33 +99,100 @@ div {
     flex: 6;
 }
 
-#startPosition{
-    border-bottom: 1px solid #ccc;
+
+.line-search-p{
+    position: relative;
+    top:8px;
+    height: 40px;
+    line-height: 34px;
+    width: 270px;
+    font-size: 14px;
+    color: #acd7ff;
+    border-radius: 2px;
 }
 
-#endPosition{
+.route-input-icon{
+    position:absolute;
+    display: block;
+    width:11px;
+    height:10px;
+    top:14px;
+    bottom:15px;
+    left:0;
+}
 
+.route-start{
+    background: url('../images/left_start.png') no-repeat 0 0;
+}
+
+.route-end{
+    background: url('../images/left_end.png') no-repeat 0 0;
+}
+
+.line-search-p input{
+    position: absolute;
+    left:12px;
+    width: 68%;
+    height: 40px;
+    line-height: 40px;
+    border: none;
+    background: transparent;
+    text-indent: 5px;
+    color: #acd7ff;
+    padding: 0;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    outline: 0;
+}
+
+.positionIcon{
+    position: absolute;
+    display: block;
+    top:0;
+    right:0;
+    width: 22%;
+    height: 40px;
+    line-height: 40px;
+}
+
+.line-search-p div img{
+    position:absolute;
+    display: block;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    width:50%;
+    height:50%;
+    margin: auto;
+}
+
+#endPara{
+    position: absolute;
 }
 
 #right{
-    -webkit-flex: 1;
-    flex: 1;
+    position: relative;
+    -webkit-flex: 2;
+    flex: 2;
 }
 
 #transfer{
-    margin-top:33px;
+    position: absolute;
     display: block;
     height: 34px;
     width: 34px;
     padding: 5px 5px;
-    margin-bottom:33px;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
 }
 
 #mapContent{
     position: relative;
 }
-
-
 
  /*
 .header {
